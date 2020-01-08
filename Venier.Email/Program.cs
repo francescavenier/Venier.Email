@@ -7,9 +7,18 @@ namespace Venier.Email
     {
         static void Main(string[] args)
         {
-            Message message;
+            Message message = new Message { };
 
             Console.WriteLine("Enter email address:");
+            message.email = Console.ReadLine();
+
+            Console.WriteLine("Enter object:");
+            message.obj = Console.ReadLine();
+
+            Console.WriteLine("Enter text:");
+            message.text = Console.ReadLine();
+
+            //Console.WriteLine("\n\nEmail: "message.email + "\nObject: " + message.obj + "\nMessage:\n" + message.text);
 
             Console.ReadLine();
         }
