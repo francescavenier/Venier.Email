@@ -6,6 +6,6 @@ namespace Venier.Data
 {
     interface IJSONconvert
     {
-        void JSONdeserialize(Message model);
+        Message JSONdeserialize(string input);
     }
 }

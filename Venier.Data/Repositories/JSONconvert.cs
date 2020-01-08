@@ -7,7 +7,7 @@ namespace Venier.Data.Repositories
 {
     class JSONconvert : IJSONconvert
     {
-        public void JSONdeserialize(Message model)
+        public Message JSONdeserialize(string input)
         {
             throw new NotImplementedException();
         }
