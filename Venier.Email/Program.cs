@@ -1,4 +1,5 @@
 ﻿using System;
+using Venier.Data;
 
 namespace Venier.Email
 {
@@ -6,7 +7,9 @@ namespace Venier.Email
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("Hello World!");
+            Message message;
+
+            Console.WriteLine("Enter email address:");
 
             Console.ReadLine();
         }

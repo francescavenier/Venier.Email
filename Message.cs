@@ -1,6 +1,6 @@
 ﻿using System;
 
-public class Message
+static public class Message
 {
 	public Message()
 	{
