@@ -24,7 +24,6 @@ namespace Venier.Email
             //Serialize message
             var JsonMessage = JsonConvert.SerializeObject(message);
 
-
             // Connection to Azure
             var storageAccount = CloudStorageAccount.Parse(StorageConnectionString);
             var queueClient = storageAccount.CreateCloudQueueClient();
@@ -37,8 +36,6 @@ namespace Venier.Email
             queue.AddMessage(email);
             Console.WriteLine("Email: Ok!");
 
-
-            //Console.WriteLine("\n\nEmail: "message.email + "\nObject: " + message.obj + "\nMessage:\n" + message.text);
             Console.ReadLine();
         }
     }
