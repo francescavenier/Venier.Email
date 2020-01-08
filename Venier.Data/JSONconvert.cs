@@ -5,7 +5,7 @@ using System.Text;
 
 namespace Venier.Data.Repositories
 {
-    class JSONconvert : IJSONconvert
+    class JSONconvert
     {
         public Message JSONdeserialize(string input)
         {
