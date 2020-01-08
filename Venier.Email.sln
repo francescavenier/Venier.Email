@@ -1,0 +1,36 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.29613.14
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Venier.Email", "Venier.Email\Venier.Email.csproj", "{C29E58E8-8E67-41EE-B67B-4B1A52C61212}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Venier.Queue", "Venier.Queue\Venier.Queue.csproj", "{2AA073AB-462E-478A-BE00-06230C4FB3BA}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{3AD67A9E-45A8-49A1-B4B9-6E55AC7548EF}"
+	ProjectSection(SolutionItems) = preProject
+		Message.cs = Message.cs
+	EndProjectSection
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{C29E58E8-8E67-41EE-B67B-4B1A52C61212}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C29E58E8-8E67-41EE-B67B-4B1A52C61212}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C29E58E8-8E67-41EE-B67B-4B1A52C61212}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C29E58E8-8E67-41EE-B67B-4B1A52C61212}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2AA073AB-462E-478A-BE00-06230C4FB3BA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2AA073AB-462E-478A-BE00-06230C4FB3BA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2AA073AB-462E-478A-BE00-06230C4FB3BA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2AA073AB-462E-478A-BE00-06230C4FB3BA}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {5CE516C8-6AEC-485D-B957-F896355FB7C2}
+	EndGlobalSection
+EndGlobal
