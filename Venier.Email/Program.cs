@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Newtonsoft.Json;
+using System;
 using Venier.Data;
 
 namespace Venier.Email
@@ -18,8 +19,11 @@ namespace Venier.Email
             Console.WriteLine("Enter text:");
             message.text = Console.ReadLine();
 
-            //Console.WriteLine("\n\nEmail: "message.email + "\nObject: " + message.obj + "\nMessage:\n" + message.text);
+            //Serialize message
+            var JsonMessage = JsonConvert.SerializeObject(message);
 
+
+            //Console.WriteLine("\n\nEmail: "message.email + "\nObject: " + message.obj + "\nMessage:\n" + message.text);
             Console.ReadLine();
         }
     }
