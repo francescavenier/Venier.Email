@@ -16,7 +16,7 @@ namespace Venier.Data
             {
                 //From Address    
                 string FromAddress = AuthEmail;
-                string FromAdressTitle = "My Name";
+                string FromAdressTitle = "Francesca Venier";
                 //To Address    
                 string ToAddress = model.email;
                 string ToAdressTitle = "Microsoft ASP.NET Core";
@@ -40,7 +40,7 @@ namespace Venier.Data
 
                 using (var client = new SmtpClient())
                 {
-                    client.Connect(SmtpServer, SmtpPortNumber, false);
+                    client.Connect(SmtpServer, SmtpPortNumber);
                     client.Authenticate(
                         AuthEmail,
                         AuthPassword

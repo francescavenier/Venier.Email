@@ -1,10 +1,9 @@
 ﻿using Microsoft.Azure.Storage;
 using Microsoft.Azure.Storage.Queue;
+using Newtonsoft.Json;
 using System;
-
 using System.Threading;
 using Venier.Data;
-using Venier.Data.Repositories;
 
 namespace Venier.Queue
 {
@@ -29,14 +28,14 @@ namespace Venier.Queue
                 { 
                     Console.WriteLine(queueMessage.AsString);
                     // Deserialize message
-                    message = JSONconvert.JSONdeserialize(queueMessage.AsString);
-
-                    // Delete message from queue
-                    queue.DeleteMessage(queueMessage);
+                    message = JsonConvert.DeserializeObject<Message>(queueMessage.AsString);
 
                     // Send email
                     EmailSender send = new EmailSender { };
                     send.SendEmail(message);
+
+                    // Delete message from queue
+                    queue.DeleteMessage(queueMessage);
                 }
                 else 
                 {
