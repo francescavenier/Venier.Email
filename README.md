@@ -1,7 +1,8 @@
-# ${1:Venier.Email}
+# Venier.Email
 Sending email with console application and Azure queue
-# ${2:Usage}
-All variable for connection are secret. If you want to test this program you must create a new file: Program.key.cs
+# Usage
+All variable for connection are secret. 
+If you want to test this program you must create a new file: Program.key.cs
 ```c#
     partial class Program
     {
