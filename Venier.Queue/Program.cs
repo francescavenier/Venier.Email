@@ -4,6 +4,9 @@ using Newtonsoft.Json;
 using System;
 using System.Threading;
 using Venier.Data;
+using MimeKit;
+using MailKit.Net.Smtp;
+using MailKit.Security;
 
 namespace Venier.Queue
 {
@@ -31,11 +34,54 @@ namespace Venier.Queue
                     message = JsonConvert.DeserializeObject<Message>(queueMessage.AsString);
 
                     // Send email
-                    EmailSender send = new EmailSender { };
-                    send.SendEmail(message);
+                    try
+                    {
+                        //From Address    
+                        string FromAddress = AuthEmail;
+                        string FromAdressTitle = "Francesca Venier";
+                        //To Address    
+                        string ToAddress = message.email;
+                        string ToAdressTitle = "Microsoft ASP.NET Core";
+                        string Subject = message.obj;
+                        string BodyContent = message.text;
 
-                    // Delete message from queue
-                    queue.DeleteMessage(queueMessage);
+                        var mimeMessage = new MimeMessage();
+                        mimeMessage.From.Add(new MailboxAddress
+                                                (FromAdressTitle,
+                                                 FromAddress
+                                                 ));
+                        mimeMessage.To.Add(new MailboxAddress
+                                                 (ToAdressTitle,
+                                                 ToAddress
+                                                 ));
+                        mimeMessage.Subject = Subject; //Subject  
+                        mimeMessage.Body = new TextPart("plain")
+                        {
+                            Text = BodyContent
+                        };
+
+                        using (var client = new SmtpClient())
+                        {
+                            client.Connect(SmtpServer, SmtpPortNumber);
+                            client.Authenticate(
+                                AuthEmail,
+                                AuthPassword
+                                );
+                            client.Send(mimeMessage);
+
+                            Console.WriteLine("The mail has been sent successfully !!");
+                            Console.ReadLine();
+                            client.Disconnect(true);
+
+                            // Delete message from queue
+                            queue.DeleteMessage(queueMessage);
+                        }
+                    }
+                    catch (Exception ex)
+                    {
+                        throw ex;
+                    }
+
                 }
                 else 
                 {
