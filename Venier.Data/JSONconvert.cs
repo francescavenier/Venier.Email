@@ -5,9 +5,9 @@ using System.Text;
 
 namespace Venier.Data.Repositories
 {
-    class JSONconvert
+    public class JSONconvert
     {
-        public Message JSONdeserialize(string input)
+        public static Message JSONdeserialize(string input)
         {
             throw new NotImplementedException();
         }

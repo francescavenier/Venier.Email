@@ -3,7 +3,7 @@ using Microsoft.Azure.Storage.Queue;
 using System;
 using System.Threading;
 using Venier.Data;
-
+using Venier.Data.Repositories;
 
 namespace Venier.Queue
 {
@@ -28,9 +28,11 @@ namespace Venier.Queue
                 { 
                     Console.WriteLine(queueMessage.AsString);
                     // Deserialize message
-                    JSONconvert.JSONdeserialize(queueMessage.AsString);
+                    message = JSONconvert.JSONdeserialize(queueMessage.AsString);
+
                     queue.DeleteMessage(queueMessage);
                     // Send email
+
                 }
                 else 
                 {
