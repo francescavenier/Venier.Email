@@ -1,6 +1,7 @@
 ﻿using Microsoft.Azure.Storage;
 using Microsoft.Azure.Storage.Queue;
 using System;
+
 using System.Threading;
 using Venier.Data;
 using Venier.Data.Repositories;
@@ -9,6 +10,7 @@ namespace Venier.Queue
 {
     partial class Program
     {
+        private readonly EmailSender emailSender;
         static void Main(string[] args)
         {
             int wait = 2000;
@@ -32,7 +34,7 @@ namespace Venier.Queue
 
                     queue.DeleteMessage(queueMessage);
                     // Send email
-
+                    await emailSender.SendEmailAsync(message);
                 }
                 else 
                 {
