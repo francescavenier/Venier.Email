@@ -10,7 +10,6 @@ namespace Venier.Queue
 {
     partial class Program
     {
-        private readonly EmailSender emailSender;
         static void Main(string[] args)
         {
             int wait = 2000;
@@ -32,9 +31,12 @@ namespace Venier.Queue
                     // Deserialize message
                     message = JSONconvert.JSONdeserialize(queueMessage.AsString);
 
+                    // Delete message from queue
                     queue.DeleteMessage(queueMessage);
+
                     // Send email
-                    await emailSender.SendEmailAsync(message);
+                    EmailSender send = new EmailSender { };
+                    send.SendEmail(message);
                 }
                 else 
                 {

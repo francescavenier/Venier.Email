@@ -10,7 +10,7 @@ namespace Venier.Data
 {
     public partial class EmailSender
     {
-        public async Task SendEmailAsync(Message model)
+        public void SendEmail(Message model)
         {
             try
             {
@@ -45,10 +45,11 @@ namespace Venier.Data
                         AuthEmail,
                         AuthPassword
                         );
-                    await client.SendAsync(mimeMessage);
+                    client.Send(mimeMessage);
+
                     Console.WriteLine("The mail has been sent successfully !!");
                     Console.ReadLine();
-                    await client.DisconnectAsync(true);
+                    client.Disconnect(true);
                 }
             }
             catch (Exception ex)
